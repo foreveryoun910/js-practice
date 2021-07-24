@@ -19,6 +19,8 @@ import co.yedam.member.command.MemberInsertFormCommand;
 import co.yedam.member.command.MemberSearchCommand;
 import co.yedam.member.command.MemberSearchFormCommand;
 import co.yedam.member.command.MemberSelectListCommand;
+import co.yedam.member.command.MemberUpdateCommand;
+import co.yedam.member.command.MemberUpdateFormCommand;
 
 //@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
@@ -33,13 +35,15 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Command 객체를 여기 등록 (map 구조로 등록)
 		map.put("/main.do", new MainCommand()); // 홈
-		map.put("/memberList.do", new MemberSelectListCommand());
-		map.put("/memberSearch.do", new MemberSearchCommand());
-		map.put("/memberSearchForm.do", new MemberSearchFormCommand());
-		map.put("/memberInsert.do", new MemberInsertCommand());
-		map.put("/memberInsertForm.do", new MemberInsertFormCommand());
-		map.put("/memberDelete.do", new MemberDeleteCommand());
-		map.put("/memberDeleteForm.do", new MemberDeleteFormCommand());
+		map.put("/memberList.do", new MemberSelectListCommand()); // 회원전체목록
+		map.put("/memberSearch.do", new MemberSearchCommand()); // 회원조회
+		map.put("/memberSearchForm.do", new MemberSearchFormCommand()); // 회원조회폼
+		map.put("/memberInsert.do", new MemberInsertCommand()); // 회원가입
+		map.put("/memberInsertForm.do", new MemberInsertFormCommand()); // 회원가입폼
+		map.put("/memberDelete.do", new MemberDeleteCommand()); // 회원삭제
+		map.put("/memberDeleteForm.do", new MemberDeleteFormCommand()); // 회원삭제폼
+		map.put("/memberUpdate.do", new MemberUpdateCommand()); // 회원정보변경
+		map.put("/memberUpdateForm.do", new MemberUpdateFormCommand()); // 회원정보변경폼
 		
 	}
 
