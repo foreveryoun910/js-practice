@@ -8,7 +8,7 @@ public class MemberUpdateFormCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 회원정보변경폼
-		return null;
+		return "member/memberUpdateForm";
 	}
 
 }
