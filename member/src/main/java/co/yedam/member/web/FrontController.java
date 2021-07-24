@@ -21,6 +21,7 @@ import co.yedam.member.command.MemberSearchFormCommand;
 import co.yedam.member.command.MemberSelectListCommand;
 import co.yedam.member.command.MemberUpdateCommand;
 import co.yedam.member.command.MemberUpdateFormCommand;
+import co.yedam.member.command.MemberUpdateSearchCommand;
 
 //@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
@@ -44,6 +45,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberDeleteForm.do", new MemberDeleteFormCommand()); // 회원삭제폼
 		map.put("/memberUpdate.do", new MemberUpdateCommand()); // 회원정보변경
 		map.put("/memberUpdateForm.do", new MemberUpdateFormCommand()); // 회원정보변경폼
+		map.put("/memberUpdateSearch.do", new MemberUpdateSearchCommand()); // 정보변경을 위한 조회단계
 		
 	}
 
