@@ -13,6 +13,7 @@
 		<div><h3><a href="memberList.do">회원목록보기</a></h3></div>
 		<div><h3><a href="memberSearchForm.do">회원조회</a></h3></div>
 		<div><h3><a href="memberInsertForm.do">회원가입</a></h3></div>
+		<div><h3><a href="memberDeleteForm.do">회원삭제</a></h3></div>
 	</div>
 </body>
 </html>
