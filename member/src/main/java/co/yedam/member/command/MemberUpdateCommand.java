@@ -7,7 +7,7 @@ public class MemberUpdateCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		// TODO 회원정보변경
 		return null;
 	}
 
