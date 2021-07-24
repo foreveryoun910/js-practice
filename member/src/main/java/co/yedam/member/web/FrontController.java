@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.member.command.Command;
 import co.yedam.member.command.MainCommand;
+import co.yedam.member.command.MemberInsertCommand;
+import co.yedam.member.command.MemberInsertFormCommand;
 import co.yedam.member.command.MemberSearchCommand;
 import co.yedam.member.command.MemberSearchFormCommand;
 import co.yedam.member.command.MemberSelectListCommand;
@@ -32,8 +34,8 @@ public class FrontController extends HttpServlet {
 		map.put("/memberList.do", new MemberSelectListCommand());
 		map.put("/memberSearch.do", new MemberSearchCommand());
 		map.put("/memberSearchForm.do", new MemberSearchFormCommand());
-//		map.put("/memberInsert.do", new MemberInsertCommand());
-//		map.put("/memberInsertForm.do", new MemberInsertFormCommand());
+		map.put("/memberInsert.do", new MemberInsertCommand());
+		map.put("/memberInsertForm.do", new MemberInsertFormCommand());
 		
 	}
 

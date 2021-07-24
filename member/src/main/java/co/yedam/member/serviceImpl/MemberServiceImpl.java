@@ -75,20 +75,70 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int memberInsert(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 회원가입
+		String sql = "insert into member values(?, ?, ?, ?, ?)";
+		int n = 0;
+		conn = DAO.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPassword());
+			psmt.setString(3, vo.getName());
+			psmt.setInt(4, vo.getAge());
+			psmt.setString(5, vo.getHobby());
+			n = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return n;
 	}
 
 	@Override
 	public int memberDelete(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 회원삭제
+		String sql = "delete from member where id=?";
+		int n = 0;
+		
+		conn = DAO.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getId());
+			n = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return n;
 	}
 
 	@Override
 	public int memberUpdate(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO 회원정보변경
+		String sql = "update member set password=?, age=?, hobby=? where id=?";
+		int n = 0;
+		conn = DAO.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getPassword());
+			psmt.setInt(2, vo.getAge());
+			psmt.setString(3, vo.getHobby());
+			psmt.setString(5, vo.getId());
+			n = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return n;
 	}
 
 	
