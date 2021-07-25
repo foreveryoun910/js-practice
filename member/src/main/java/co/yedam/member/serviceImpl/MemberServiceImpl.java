@@ -129,7 +129,7 @@ public class MemberServiceImpl implements MemberService {
 			psmt.setString(1, vo.getPassword());
 			psmt.setInt(2, vo.getAge());
 			psmt.setString(3, vo.getHobby());
-			psmt.setString(5, vo.getId());
+			psmt.setString(4, vo.getId());
 			n = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
