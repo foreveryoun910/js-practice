@@ -85,19 +85,54 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int boardInsert(BoardVO vo) {
 		// TODO 게시글 작성 (입력)
-		return 0;
+		String sql = "insert into board(bid, btitle, bcontent, bwriter, bdate) values(b_seq.nextval, ?, ?, ?, ?)";
+		int n = 0;
+		conn = DAO.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getbTitle());
+			psmt.setString(2, vo.getbContent());
+			psmt.setString(3, vo.getbWriter());
+			psmt.setDate(4, vo.getbDate());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { close(); }
+		return n;
 	}
 
 	@Override
 	public int boardDelete(BoardVO vo) {
 		// TODO 게시글 삭제
-		return 0;
+		String sql = "delete from board where bid = ?";
+		int n = 0;
+		conn = DAO.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getbId());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { close(); }
+		return n;
 	}
 
 	@Override
 	public int boardUpdate(BoardVO vo) {
 		// TODO 게시글 수정
-		return 0;
+		String sql = "update board set btitle = ?, bcontent = ? where bid = ?";
+		int n = 0;
+		conn = DAO.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getbTitle());
+			psmt.setString(2, vo.getbContent());
+			psmt.setInt(3, vo.getbId());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { close(); }
+		return n;
 	}
 
 	

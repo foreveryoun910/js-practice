@@ -15,6 +15,8 @@ import co.yedam.board.command.BoardList;
 import co.yedam.board.command.BoardSelect;
 import co.yedam.board.command.Command;
 import co.yedam.board.command.HomeCommand;
+import co.yedam.board.command.InsertBoard;
+import co.yedam.board.command.InsertForm;
 
 @WebServlet("*.do") // 어노테이션 활용
 public class FrontController extends HttpServlet {
@@ -30,6 +32,8 @@ public class FrontController extends HttpServlet {
 		map.put("/home.do", new HomeCommand());
 		map.put("/boardList.do", new BoardList()); // 게시글 목록 조회 (전체조회)
 		map.put("/boardSelect.do", new BoardSelect()); // 한 행 조회 (게시글 상세 조회)
+		map.put("/insertForm.do", new InsertForm()); // 게시글 작성 폼
+		map.put("/insertBoard.do", new InsertBoard()); // 게시글 작성
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
