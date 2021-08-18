@@ -35,19 +35,20 @@ public class ReviewInsertServlet extends HttpServlet {
 		response.setContentType("text/json;charset=utf-8");
 
 		ReviewService dao = new ReviewServiceImpl();
-		HttpSession session = request.getSession();
 		ReviewVO vo = new ReviewVO();
 		vo.setEmail(request.getParameter("email"));
 		vo.setReviewLike(Integer.valueOf(request.getParameter("reviewLike")));
 		vo.setReviewContent(request.getParameter("reviewContent"));
 		dao.reviewInsert(vo);
-		session.getAttribute("sessionEmail");
+		HttpSession session = request.getSession();
+		String sessionValue = (String)session.getAttribute("sessionEmail");
+		System.out.println(sessionValue);
 		
 		Gson gson = new GsonBuilder().create();
 		response.getWriter().print(gson.toJson(vo));
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession();
-		sqlSession.close();		
+		sqlSession.close();	
 	}
 
-}
+}	

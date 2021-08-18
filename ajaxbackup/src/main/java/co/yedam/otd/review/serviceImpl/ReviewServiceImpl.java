@@ -25,12 +25,6 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public List<ReviewVO> reviewSelectList(ReviewVO vo) {
-		// TODO 리뷰조회(내가 쓴 리뷰만 조회할 수 있도록, 리뷰를 여러개 쓴 경우도 있을 수 있으니 list로 받아옴)
-		return map.reviewSelectList(vo);
-	}
-
-	@Override
 	public int reviewInsert(ReviewVO vo) {
 		// TODO 리뷰작성(서비스를 이용한 사람만)
 		int n = map.reviewInsert(vo);
